@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: bpel
+spec:
+  selector:
+    matchLabels:
+      app: bpel
+  replicas: 2
+  template: # template for the pods
+    metadata:
+      labels:
+        app: bpel
+    spec:
+      containers:
+      - name: bpel
+        image: armelab/bpel-kube
+
+
