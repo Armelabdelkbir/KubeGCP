@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: credit
+spec:
+  selector:
+    matchLabels:
+      app: credit
+  replicas: 2
+  template: # template for the pods
+    metadata:
+      labels:
+        app: credit
+    spec:
+      containers:
+      - name: credit
+        image: armelab/axis-credit
+
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: home
+spec:
+  selector:
+    matchLabels:
+      app: home
+  replicas: 2
+  template: # template for the pods
+    metadata:
+      labels:
+        app: home
+    spec:
+      containers:
+      - name: home
+        image: armelab/axis-home
